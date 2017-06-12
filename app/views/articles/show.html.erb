@@ -1,6 +1,6 @@
 <h3 style="text-align:center;"> Articles of the user</h3>
 <p id="notice"><%= notice %></p>
- <div>
+ <div style="text-align:center;">
 <p>
   <strong>Description:</strong>
   <%= @article.description %>
@@ -15,6 +15,7 @@
  <%= link_to ">", @article.next, :html_options => {:accesskey => "LEFT ARROW"} %>
  <%end%>
 </p>
- </div>
+ 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', new_article_path %>
+</div>
