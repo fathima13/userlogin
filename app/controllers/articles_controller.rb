@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   	@article = current_user.articles
   	@article = @article.new(paramaters)
     if @article.save
-     redirect_to article_url(id: @article.id)
+     redirect_to article_path(id:@article.id)
      else
       render 'new'
     end
@@ -26,8 +26,8 @@ class ArticlesController < ApplicationController
   end
   def update
      @article = current_user.articles.find(params[:id])
-     @article = @article.update(paramaters)
-     redirect_to article_url(id: @article.id)
+     @article.update(paramaters)
+     redirect_to article_path(id:@article.id)
   end
 
   private
