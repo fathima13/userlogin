@@ -1,17 +1,20 @@
 <h3 style="text-align:center;"> Articles of the user</h3>
 <p id="notice"><%= notice %></p>
- 
+ <div>
 <p>
   <strong>Description:</strong>
   <%= @article.description %>
 </p>
  
 <p>
-
+	<% if @article.previous.present? %>
   <%= link_to "<", @article.previous, :html_options => {:accesskey => "LEFT ARROW"} %>
+  <%end%>
   <%= image_tag @article.image.thumb.url unless @article.image.blank? %>
-  <%= link_to ">", @article.next, :html_options => {:accesskey => "LEFT ARROW"} %>
+ 	<% if @article.next.present? %>
+ <%= link_to ">", @article.next, :html_options => {:accesskey => "LEFT ARROW"} %>
+ <%end%>
 </p>
- 
+ </div>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', new_article_path %>

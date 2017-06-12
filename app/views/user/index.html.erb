@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+	<% if current_user.articles.present? %>
+	<%= link_to 'view article',article_url(current_user.articles.first) %>
+	<% end %>
 	<%= link_to 'logout', destroy_user_session_url, method: :delete %>
 	<%= link_to 'Create Article', new_article_path %>
 <% else %>
